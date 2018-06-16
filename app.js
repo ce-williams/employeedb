@@ -29,10 +29,20 @@
 
   });
 
-database.ref().on("child_added",function(childSnapshot){
-  console.log(childSnapshot.val().newName);
-  console.log(childSnapshot.val().newRole);
-  console.log(childSnapshot.val().newStartDate);
-  console.log(childSnapshot.val().newRate);
+database.ref().endAt().limit(1).on("child_added",function(childSnapshot){
+
+
+
+
+
+var newRow = $("<div>").attr("class", "row");
+
+
+newRow.append($("<div>").text(childSnapshot.val().newName));
+newRow.append($("<div>").text(childSnapshot.val().newRole));
+newRow.append($("<div>").text(childSnapshot.val().newStartDate));
+newRow.append($("<div>").text(childSnapshot.val().newRate));
+
+$("#records").append(newRow);
 
 });
