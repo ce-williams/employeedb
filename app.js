@@ -24,7 +24,15 @@
       newRole: role,
       newStartDate: startDate,
       newRate: rate
+
     });
+
   });
 
+database.ref().on("child_added",function(childSnapshot){
+  console.log(childSnapshot.val().newName);
+  console.log(childSnapshot.val().newRole);
+  console.log(childSnapshot.val().newStartDate);
+  console.log(childSnapshot.val().newRate);
 
+});
