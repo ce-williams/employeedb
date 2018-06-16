@@ -11,4 +11,20 @@
 
   var database = firebase.database();
 
+  $(".btn").click(function(evt) {
+    evt.preventDefault();
+
+    var name = $("#name").val().trim();
+    var role = $("#role").val().trim();
+    var startDate = $("#start-date").val().trim();
+    var rate = $("#rate").val().trim();
+
+    database.ref().push({
+      newName: name,
+      newRole: role,
+      newStartDate: startDate,
+      newRate: rate
+    });
+  });
+
 
